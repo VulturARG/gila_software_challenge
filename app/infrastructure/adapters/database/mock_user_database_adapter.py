@@ -19,8 +19,8 @@ class MockUsersTable(DatabaseRepository):
         """Retrieve register from database table."""
         try:
             return MOCK_USERS[model_id]
-        except KeyError:
-            raise IdNotFoundError(table="user", record_id=model_id)
+        except KeyError as error:
+            raise IdNotFoundError(table="user", record_id=model_id) from error
 
     def update(self, model_id: str) -> dict[str, Any]:
         """Update register from database table."""

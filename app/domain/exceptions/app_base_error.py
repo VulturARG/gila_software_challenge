@@ -40,5 +40,3 @@ class AppBaseWarning(AppBaseError):
 
 class AppRequestError(AppBaseError):
     """Base class for all own request errors."""
-
-

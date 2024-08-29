@@ -1,7 +1,5 @@
-
-from fastapi import APIRouter
-
 from app.infrastructure.fastapi.notification_request import NotificationRequest
+from fastapi import APIRouter
 
 router = APIRouter()
 

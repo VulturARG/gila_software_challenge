@@ -1,12 +1,12 @@
+from app.domain.exceptions.app_base_error import (
+    AppBaseError,
+    AppBaseWarning,
+    AppGenericError,
+    AppRequestError,
+)
 from fastapi import Request
 from fastapi.responses import JSONResponse
 from starlette import status
-
-from app.domain.exceptions.app_base_error import (
-    AppBaseWarning,
-    AppGenericError,
-    AppBaseError, AppRequestError,
-)
 
 
 async def app_base_warning_handler(request: Request, exc: AppBaseWarning):

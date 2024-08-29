@@ -14,5 +14,3 @@ class TestNotificationRequest(unittest.TestCase):
     def test_invalid_category(self):
         with self.assertRaises(NotificationRequestError):
             NotificationRequest(category="InvalidCategory", message="A valid message")
-
-

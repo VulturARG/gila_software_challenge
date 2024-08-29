@@ -3,7 +3,12 @@ import traceback
 from logging import getLogger
 from typing import Optional
 
-from app.domain.exceptions.app_base_error import AppBaseWarning, AppBaseError, AppGenericError, AppRequestError
+from app.domain.exceptions.app_base_error import (
+    AppBaseError,
+    AppBaseWarning,
+    AppGenericError,
+    AppRequestError,
+)
 
 logger = getLogger(__name__)
 

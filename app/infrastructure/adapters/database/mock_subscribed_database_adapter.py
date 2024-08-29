@@ -3,7 +3,6 @@ from typing import Any
 from app.domain.database.database_errors import IdNotFoundError
 from app.domain.database.database_repository import DatabaseRepository
 from app.infrastructure.adapters.database.mock_subscribed_table import SUBSCRIBED
-from app.infrastructure.adapters.database.mock_users_table import MOCK_USERS
 
 
 class MockSubscribedTable(DatabaseRepository):
@@ -20,8 +19,8 @@ class MockSubscribedTable(DatabaseRepository):
         """Retrieve register from database table."""
         try:
             return SUBSCRIBED[model_id]
-        except KeyError:
-            raise IdNotFoundError(table="SUBSCRIBED", record_id=model_id)
+        except KeyError as error:
+            raise IdNotFoundError(table="SUBSCRIBED", record_id=model_id) from error
 
     def update(self, model_id: str) -> dict[str, Any]:
         """Update register from database table."""
