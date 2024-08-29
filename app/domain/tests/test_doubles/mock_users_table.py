@@ -3,7 +3,7 @@ MOCK_USERS = {
         "name": "Alice Johnson",
         "email": "alice.johnson@example.com",
         "phone": "123-456-7890",
-        "channels": ["email", "pushnotification"],
+        "channels": ["email", "push_notification"],
     },
     "2": {
         "name": "Bob Smith",
@@ -15,12 +15,18 @@ MOCK_USERS = {
         "name": "Charlie Brown",
         "email": "charlie.brown@example.com",
         "phone": "345-678-9012",
-        "channels": ["email", "sms"],
+        "channels": ["email", "sms", "push_notification"],
     },
     "4": {
         "name": "Diana Prince",
         "email": "diana.prince@example.com",
         "phone": "456-789-0123",
-        "channels": ["pushnotification"],
+        "channels": ["push_notification"],
+    },
+    "5": {
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "phone": "123456789",
+        "channels": ["email"],
     },
 }
