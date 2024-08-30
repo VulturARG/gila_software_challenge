@@ -1,4 +1,5 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
+from typing import Any
 
 from app.domain.notifications.notification_channel import NotificationChannel
 
@@ -10,3 +11,6 @@ class UserEntity:
     email: str
     phone: str
     channels: list[NotificationChannel]
+
+    def as_dict(self) -> dict[str, Any]:
+        return asdict(self)
