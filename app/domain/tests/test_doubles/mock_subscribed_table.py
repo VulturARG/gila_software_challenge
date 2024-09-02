@@ -1,4 +1,4 @@
-SUBSCRIBED = {
+MOCK_SUBSCRIBED = {
     "sports": [
         {
             "id": "1",

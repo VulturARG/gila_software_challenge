@@ -1,7 +1,6 @@
 from typing import Iterable, Any
 
 from app.domain.database.database_repository import DatabaseRepository
-from app.domain.database.non_sql_database_repository import NonSqlDatabaseRepository
 from app.domain.database.user_entity import UserEntity
 from app.domain.gateways.email_port import EmailPort
 from app.domain.gateways.message_dto import UserMessageDTO
@@ -17,18 +16,16 @@ class NotificationService:
         email_port: EmailPort,
         sms_port: SmsPort,
         push_notification_port: PushNotificationPort,
-        subscribed_repository: NonSqlDatabaseRepository,
         user_repository: DatabaseRepository,
     ):
         self.email_port = email_port
         self.sms_port = sms_port
         self.push_notification_port = push_notification_port
-        self.subscribed_repository = subscribed_repository
         self.user_repository = user_repository
 
     def send_notification(self, notification: NotificationDTO) -> None:
-        user_ids = self.subscribed_repository.mock_find_subscribed_users(notification.category.value)
-        users = self._list_users_to_notify(users=user_ids)
+        raw_users = self.user_repository.list_subscribed_users(category=notification.category.value,)
+        users = self._list_users_to_notify(users=raw_users)
 
         for user in users:
             self._send_to_user(notification.message, user)
