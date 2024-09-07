@@ -34,7 +34,7 @@ class TestNotificationService(TestCase):
 
     def test_send_notification_by_email(self):
         user = MOCK_USERS["5"]
-        user_entity = self._get_user_entity(user)
+        user_entity = UserEntity.from_dict(data=user)
         self.user_repository.list_subscribed_users.return_value = [user]
         self.notification_service.send(notification=self.notification)
 
@@ -44,7 +44,7 @@ class TestNotificationService(TestCase):
 
     def test_send_notification_by_sms(self):
         user = MOCK_USERS["2"]
-        user_entity = self._get_user_entity(user)
+        user_entity = UserEntity.from_dict(data=user)
         self.user_repository.list_subscribed_users.return_value = [user]
         self.notification_service.send(notification=self.notification)
 
@@ -54,7 +54,7 @@ class TestNotificationService(TestCase):
 
     def test_send_notification_by_push(self):
         user = MOCK_USERS["4"]
-        user_entity = self._get_user_entity(user)
+        user_entity = UserEntity.from_dict(data=user)
         self.user_repository.list_subscribed_users.return_value = [user]
         self.notification_service.send(notification=self.notification)
 
@@ -64,7 +64,7 @@ class TestNotificationService(TestCase):
 
     def test_send_notification_by_email_and_push(self):
         user = MOCK_USERS["1"]
-        user_entity = self._get_user_entity(user)
+        user_entity = UserEntity.from_dict(data=user)
         self.user_repository.list_subscribed_users.return_value = [user]
         self.notification_service.send(notification=self.notification)
 
@@ -78,7 +78,7 @@ class TestNotificationService(TestCase):
 
     def test_send_notification_by_all_methods(self):
         user = MOCK_USERS["3"]
-        user_entity = self._get_user_entity(user)
+        user_entity = UserEntity.from_dict(data=user)
         self.user_repository.list_subscribed_users.return_value = [user]
         self.notification_service.send(notification=self.notification)
 
@@ -94,11 +94,3 @@ class TestNotificationService(TestCase):
             message_data=UserMessageDTO(message="Test message", user=user_entity)
         )
 
-    def _get_user_entity(self, data: dict[str, Any]) -> UserEntity:
-        return UserEntity(
-            id=data["id"],
-            name=data["name"],
-            email=data["email"],
-            phone=data["phone"],
-            channels=data["channels"],
-        )

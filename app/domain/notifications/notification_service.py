@@ -36,23 +36,7 @@ class NotificationService:
         self, users: list[dict[str, Any]]
     ) -> Iterable[UserEntity]:
         for user in users:
-            yield UserEntity(
-                id=user["id"],
-                name=user["name"],
-                email=user["email"],
-                phone=user["phone"],
-                channels=self._notification_channels(user["channels"]),
-            )
-
-    def _notification_channels(self, channels: list[str]) -> list[NotificationChannel]:
-        return [self._channel_map()[channel] for channel in channels]
-
-    def _channel_map(self) -> dict[str, NotificationChannel]:
-        return {
-            "sms": NotificationChannel.SMS,
-            "email": NotificationChannel.EMAIL,
-            "push_notification": NotificationChannel.PUSH,
-        }
+            yield UserEntity.from_dict(data=user)
 
     def _send_to_user(self, message: str, user: UserEntity) -> None:
         for channel in user.channels:

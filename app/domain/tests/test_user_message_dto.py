@@ -2,6 +2,7 @@ from unittest import TestCase
 
 from app.domain.database.user_entity import UserEntity
 from app.domain.gateways.message_dto import UserMessageDTO
+from app.domain.notifications.notification_category import NotificationCategory
 from app.domain.notifications.notification_channel import NotificationChannel
 
 
@@ -13,7 +14,8 @@ class TestUserMessageDto(TestCase):
                 name="John Doe",
                 email="john.doe@example.com",
                 phone="123456789",
-                channels=["sms", "email"]
+                channels=["sms", "email"],
+                subscribed=["films"]
             ),
             message="Hello, World!"
         )
@@ -23,7 +25,8 @@ class TestUserMessageDto(TestCase):
             name="John Doe",
             email="john.doe@example.com",
             phone="123456789",
-            channels=[NotificationChannel.SMS, NotificationChannel.EMAIL]
+            channels=[NotificationChannel.SMS, NotificationChannel.EMAIL],
+            subscribed=[NotificationCategory.FILMS]
         )
 
         dto = UserMessageDTO(user=user, message="Hello, World!")
