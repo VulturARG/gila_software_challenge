@@ -5,17 +5,14 @@ from app.domain.gateways.message_dto import UserMessageDTO
 from app.domain.notifications.notification_channel import NotificationChannel
 
 
-class TestUserMessageDto(TestCase):
+class TestUserEntity(TestCase):
     def test_as_dict(self):
         expected = dict(
-            user=dict(
-                id="1",
-                name="John Doe",
-                email="john.doe@example.com",
-                phone="123456789",
-                channels=["sms", "email"]
-            ),
-            message="Hello, World!"
+            id="1",
+            name="John Doe",
+            email="john.doe@example.com",
+            phone="123456789",
+            channels=["sms", "email"]
         )
 
         user = UserEntity(
@@ -26,6 +23,5 @@ class TestUserMessageDto(TestCase):
             channels=[NotificationChannel.SMS, NotificationChannel.EMAIL]
         )
 
-        dto = UserMessageDTO(user=user, message="Hello, World!")
-        actual = dto.as_dict()
+        actual = user.as_dict()
         self.assertEqual(expected, actual)
