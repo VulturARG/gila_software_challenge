@@ -1,4 +1,4 @@
-from typing import Iterable, Any
+from typing import Any, Iterable
 
 from app.domain.database.database_repository import DatabaseRepository
 from app.domain.database.user_entity import UserEntity
@@ -24,13 +24,17 @@ class NotificationService:
         self.user_repository = user_repository
 
     def send_notification(self, notification: NotificationDTO) -> None:
-        raw_users = self.user_repository.list_subscribed_users(category=notification.category.value,)
+        raw_users = self.user_repository.list_subscribed_users(
+            category=notification.category.value,
+        )
         users = self._list_users_to_notify(users=raw_users)
 
         for user in users:
             self._send_to_user(notification.message, user)
 
-    def _list_users_to_notify(self, users: list[dict[str, Any]]) -> Iterable[UserEntity]:
+    def _list_users_to_notify(
+        self, users: list[dict[str, Any]]
+    ) -> Iterable[UserEntity]:
         for user in users:
             yield UserEntity(
                 id=user["id"],

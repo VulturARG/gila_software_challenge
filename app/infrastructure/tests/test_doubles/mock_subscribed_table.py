@@ -1,4 +1,4 @@
-MOCK_SUBSCRIBED = {
+MOCK_SUBSCRIBED_QUERY = {
     "sports": [
         {
             "id": "1",
@@ -42,7 +42,6 @@ MOCK_SUBSCRIBED = {
             "channels": ["email"],
             "subscribed": ["finance"],
         },
-
     ],
     "films": [
         {

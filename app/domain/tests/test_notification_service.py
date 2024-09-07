@@ -39,9 +39,7 @@ class TestNotificationService(TestCase):
         self.notification_service.send_notification(notification=self.notification)
 
         self.email_port.send.assert_called_once_with(
-            message_data=UserMessageDTO(
-                message="Test message", user=user_entity
-            )
+            message_data=UserMessageDTO(message="Test message", user=user_entity)
         )
 
     def test_send_notification_by_sms(self):
@@ -71,9 +69,7 @@ class TestNotificationService(TestCase):
         self.notification_service.send_notification(notification=self.notification)
 
         self.email_port.send.assert_called_once_with(
-            message_data=UserMessageDTO(
-                message="Test message", user=user_entity
-            )
+            message_data=UserMessageDTO(message="Test message", user=user_entity)
         )
 
         self.push_notification_port.send.assert_called_once_with(
@@ -87,9 +83,7 @@ class TestNotificationService(TestCase):
         self.notification_service.send_notification(notification=self.notification)
 
         self.email_port.send.assert_called_once_with(
-            message_data=UserMessageDTO(
-                message="Test message", user=user_entity
-            )
+            message_data=UserMessageDTO(message="Test message", user=user_entity)
         )
 
         self.sms_port.send.assert_called_once_with(
@@ -106,5 +100,5 @@ class TestNotificationService(TestCase):
             name=data["name"],
             email=data["email"],
             phone=data["phone"],
-            channels=data["channels"]
+            channels=data["channels"],
         )
