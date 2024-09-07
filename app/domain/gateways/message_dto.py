@@ -1,4 +1,5 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
+from typing import Any
 
 from app.domain.database.user_entity import UserEntity
 
@@ -9,3 +10,9 @@ class UserMessageDTO:
 
     user: UserEntity
     message: str
+
+    def as_dict(self) -> dict[str, Any]:
+        return {
+            "user": self.user.as_dict(),
+            "message": self.message
+        }
