@@ -33,13 +33,17 @@ class TestLogService(TestCase):
         mock_now = datetime(2024, 9, 7, 14, 30, 0)
         mock_datetime.now.return_value = mock_now
 
-        self.log_service.info(channel=NotificationChannel.SMS, message_data=self.mock_user_message)
+        self.log_service.info(
+            channel=NotificationChannel.SMS, message_data=self.mock_user_message
+        )
 
         self.mock_user_message.as_dict.assert_called_once()
 
         expected_message = self.mock_user_message.as_dict()
         expected_message["datetime"] = mock_now.strftime("%Y-%m-%d %H:%M:%S")
-        self.mock_log_port.info.assert_called_once_with(log_data=dumps(expected_message))
+        self.mock_log_port.info.assert_called_once_with(
+            log_data=dumps(expected_message)
+        )
 
     def test_info_logs_in_json_format(self, mock_datetime: Mock):
         mock_now = datetime(2024, 9, 7, 14, 30, 0)
@@ -48,7 +52,9 @@ class TestLogService(TestCase):
         self.expected["channel"] = "sms"
         expected = dumps(self.expected)
 
-        self.log_service.info(channel=NotificationChannel.SMS, message_data=self.mock_user_message)
+        self.log_service.info(
+            channel=NotificationChannel.SMS, message_data=self.mock_user_message
+        )
 
         logged_message = self.mock_log_port.info.call_args[1]["log_data"]
         self.assertTrue(isinstance(logged_message, str))

@@ -22,7 +22,7 @@ class TestUserEntity(TestCase):
             email="john.doe@example.com",
             phone="123456789",
             channels=[NotificationChannel.SMS, NotificationChannel.EMAIL],
-            subscribed=[NotificationCategory.FILMS, NotificationCategory.FINANCE]
+            subscribed=[NotificationCategory.FILMS, NotificationCategory.FINANCE],
         )
 
         actual = user.as_dict()
@@ -35,7 +35,7 @@ class TestUserEntity(TestCase):
             email="john.doe@example.com",
             phone="123456789",
             channels=[NotificationChannel.SMS, NotificationChannel.EMAIL],
-            subscribed=[NotificationCategory.FILMS, NotificationCategory.FINANCE]
+            subscribed=[NotificationCategory.FILMS, NotificationCategory.FINANCE],
         )
 
         user = dict(
@@ -48,4 +48,3 @@ class TestUserEntity(TestCase):
         )
         actual = UserEntity.from_dict(user)
         self.assertEqual(expected, actual)
-

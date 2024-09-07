@@ -12,7 +12,4 @@ class UserMessageDTO:
     message: str
 
     def as_dict(self) -> dict[str, Any]:
-        return {
-            "user": self.user.as_dict(),
-            "message": self.message
-        }
+        return {"user": self.user.as_dict(), "message": self.message}

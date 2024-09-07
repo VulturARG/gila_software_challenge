@@ -1,7 +1,9 @@
 from unittest import TestCase
 
 from app.application.publish_message_use_case import PublishMessageUseCase
-from app.infrastructure.wirings.publish_message_use_case_wiring import PublishMessageUseCaseWiring
+from app.infrastructure.wirings.publish_message_use_case_wiring import (
+    PublishMessageUseCaseWiring,
+)
 
 
 class TestPublishMessageUseCaseWiring(TestCase):

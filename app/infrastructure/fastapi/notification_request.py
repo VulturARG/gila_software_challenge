@@ -1,6 +1,5 @@
-from pydantic import BaseModel, Field, field_validator
-
 from app.domain.notifications.notification_category import NotificationCategory
+from pydantic import BaseModel, Field, field_validator
 
 
 class NotificationRequest(BaseModel):

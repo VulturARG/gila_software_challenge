@@ -15,9 +15,9 @@ class TestUserMessageDto(TestCase):
                 email="john.doe@example.com",
                 phone="123456789",
                 channels=["sms", "email"],
-                subscribed=["films"]
+                subscribed=["films"],
             ),
-            message="Hello, World!"
+            message="Hello, World!",
         )
 
         user = UserEntity(
@@ -26,7 +26,7 @@ class TestUserMessageDto(TestCase):
             email="john.doe@example.com",
             phone="123456789",
             channels=[NotificationChannel.SMS, NotificationChannel.EMAIL],
-            subscribed=[NotificationCategory.FILMS]
+            subscribed=[NotificationCategory.FILMS],
         )
 
         dto = UserMessageDTO(user=user, message="Hello, World!")

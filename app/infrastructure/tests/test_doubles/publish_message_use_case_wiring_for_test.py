@@ -1,7 +1,9 @@
 from unittest.mock import Mock
 
 from app.domain.gateways.file_port import FilePort
-from app.infrastructure.wirings.publish_message_use_case_wiring import PublishMessageUseCaseWiring
+from app.infrastructure.wirings.publish_message_use_case_wiring import (
+    PublishMessageUseCaseWiring,
+)
 
 
 class PublishMessageUseCaseWiringForTest(PublishMessageUseCaseWiring):
@@ -19,4 +21,3 @@ class PublishMessageUseCaseWiringForTest(PublishMessageUseCaseWiring):
     def _file_port(self) -> FilePort:
         """Overrides the base class method."""
         return self._file_gateway_adapter
-

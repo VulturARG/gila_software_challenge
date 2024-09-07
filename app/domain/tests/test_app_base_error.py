@@ -24,7 +24,7 @@ class TestAppBaseError(TestCase):
         self.assertEqual(expected, actual)
 
     def test_initialization_with_exception(self):
-        expected = {'generic error': "<class 'ValueError'>"}
+        expected = {"generic error": "<class 'ValueError'>"}
         try:
             raise ValueError("Test exception")
         except ValueError as e:
@@ -34,10 +34,7 @@ class TestAppBaseError(TestCase):
         self.assertEqual(expected, actual)
 
     def test_initialization_with_message(self):
-        expected = {'generic error': 'Test message'}
+        expected = {"generic error": "Test message"}
         error = AppGenericError("Test message")
         actual = error.dict()
         self.assertEqual(expected, actual)
-
-
-

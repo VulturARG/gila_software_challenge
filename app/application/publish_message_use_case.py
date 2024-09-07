@@ -12,4 +12,3 @@ class PublishMessageUseCase:
     @generic_error_handler
     def publish(self, notification: NotificationDTO):
         self._notification_service.send(notification=notification)
-

@@ -10,4 +10,6 @@ class SmsAdapter(SmsPort):
 
     def send(self, message_data: UserMessageDTO):
         """Sends a SMS message."""
-        self._log_service.info(channel=NotificationChannel.SMS, message_data=message_data)
+        self._log_service.info(
+            channel=NotificationChannel.SMS, message_data=message_data
+        )

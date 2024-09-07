@@ -4,11 +4,10 @@ from app.domain.exceptions.app_base_error import (
     AppGenericError,
     AppRequestError,
 )
+from app.infrastructure.fastapi.fastapi_app import fastapi_app
 from fastapi import Request
 from fastapi.responses import JSONResponse
 from starlette import status
-
-from app.infrastructure.fastapi.fastapi_app import fastapi_app
 
 
 @fastapi_app.exception_handler(AppBaseWarning)

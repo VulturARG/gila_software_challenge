@@ -4,8 +4,9 @@ from unittest.mock import Mock
 from app.application.publish_message_use_case import PublishMessageUseCase
 from app.domain.gateways.file_port import FilePort
 from app.infrastructure.tests.test_doubles.mock_file_port import MockFilePort
-from app.infrastructure.tests.test_doubles.publish_message_use_case_wiring_for_test import \
-    PublishMessageUseCaseWiringForTest
+from app.infrastructure.tests.test_doubles.publish_message_use_case_wiring_for_test import (
+    PublishMessageUseCaseWiringForTest,
+)
 
 
 class TestPublishMessageUseCaseWiring(TestCase):
@@ -24,9 +25,9 @@ class TestPublishMessageUseCaseWiring(TestCase):
         actual = self.wiring.get_file_gateway()
         self.assertIsInstance(actual, Mock)
 
-        self.wiring.override_file_gateway(file_gateway=MockFilePort(in_memory_storage=[]))
+        self.wiring.override_file_gateway(
+            file_gateway=MockFilePort(in_memory_storage=[])
+        )
 
         actual = self.wiring.get_file_gateway()
         self.assertIsInstance(actual, FilePort)
-
-

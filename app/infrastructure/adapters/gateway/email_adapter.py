@@ -10,6 +10,6 @@ class EmailAdapter(EmailPort):
 
     def send(self, message_data: UserMessageDTO):
         """Sends an email."""
-        self._log_service.info(channel=NotificationChannel.EMAIL, message_data=message_data)
-
-
+        self._log_service.info(
+            channel=NotificationChannel.EMAIL, message_data=message_data
+        )

@@ -1,4 +1,3 @@
-from typing import Any
 from unittest import TestCase
 from unittest.mock import Mock
 
@@ -93,4 +92,3 @@ class TestNotificationService(TestCase):
         self.push_notification_port.send.assert_called_once_with(
             message_data=UserMessageDTO(message="Test message", user=user_entity)
         )
-

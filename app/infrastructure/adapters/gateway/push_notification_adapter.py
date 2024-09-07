@@ -10,4 +10,6 @@ class PushNotificationAdapter(PushNotificationPort):
 
     def send(self, message_data: UserMessageDTO):
         """Sends a Push Notification message."""
-        self._log_service.info(channel=NotificationChannel.PUSH, message_data=message_data)
+        self._log_service.info(
+            channel=NotificationChannel.PUSH, message_data=message_data
+        )

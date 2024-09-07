@@ -1,8 +1,8 @@
-from app.domain.logs.log_port import LogPort
-from app.domain.gateways.message_dto import UserMessageDTO
 from datetime import datetime
 from json import dumps
 
+from app.domain.gateways.message_dto import UserMessageDTO
+from app.domain.logs.log_port import LogPort
 from app.domain.notifications.notification_channel import NotificationChannel
 
 
