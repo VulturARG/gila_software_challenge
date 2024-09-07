@@ -1,6 +1,7 @@
 from app.domain.gateways.message_dto import UserMessageDTO
 from app.domain.gateways.sms_port import SmsPort
 from app.domain.logs.log_service import LogService
+from app.domain.notifications.notification_channel import NotificationChannel
 
 
 class SmsAdapter(SmsPort):
@@ -9,4 +10,4 @@ class SmsAdapter(SmsPort):
 
     def send(self, message_data: UserMessageDTO):
         """Sends a SMS message."""
-        self._log_service.info(message_data=message_data)
+        self._log_service.info(channel=NotificationChannel.SMS, message_data=message_data)
