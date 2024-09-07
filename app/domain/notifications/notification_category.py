@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class NotificationCategory(str, Enum):
+class NotificationCategory(Enum):
     SPORTS = "sports"
     FINANCE = "finance"
     FILMS = "films"
