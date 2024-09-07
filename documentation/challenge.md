@@ -4,6 +4,7 @@ It is required to create a notification system API, which is capable of receivin
 - Sports
 - Finance
 - Films
+
 And it is required to send 3 types of notifications:
 
 - SMS
