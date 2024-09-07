@@ -8,7 +8,10 @@ from fastapi import Request
 from fastapi.responses import JSONResponse
 from starlette import status
 
+from app.infrastructure.fastapi.fastapi_app import fastapi_app
 
+
+@fastapi_app.exception_handler(AppBaseWarning)
 async def app_base_warning_handler(request: Request, exc: AppBaseWarning):
     return JSONResponse(
         status_code=status.HTTP_202_ACCEPTED,
@@ -16,6 +19,7 @@ async def app_base_warning_handler(request: Request, exc: AppBaseWarning):
     )
 
 
+@fastapi_app.exception_handler(AppRequestError)
 async def app_request_error_handler(request: Request, exc: AppRequestError):
     return JSONResponse(
         status_code=status.HTTP_400_BAD_REQUEST,
@@ -23,6 +27,7 @@ async def app_request_error_handler(request: Request, exc: AppRequestError):
     )
 
 
+@fastapi_app.exception_handler(AppGenericError)
 async def app_generic_error_handler(request: Request, exc: AppGenericError):
     return JSONResponse(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
@@ -30,6 +35,7 @@ async def app_generic_error_handler(request: Request, exc: AppGenericError):
     )
 
 
+@fastapi_app.exception_handler(AppBaseError)
 async def app_base_error_handler(request: Request, exc: AppBaseError):
     return JSONResponse(
         status_code=status.HTTP_400_BAD_REQUEST,
