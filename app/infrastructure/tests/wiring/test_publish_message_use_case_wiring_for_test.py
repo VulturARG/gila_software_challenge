@@ -24,7 +24,7 @@ class TestPublishMessageUseCaseWiring(TestCase):
         actual = self.wiring.get_file_gateway()
         self.assertIsInstance(actual, Mock)
 
-        self.wiring.override_file_gateway(file_gateway=MockFilePort())
+        self.wiring.override_file_gateway(file_gateway=MockFilePort(in_memory_storage=[]))
 
         actual = self.wiring.get_file_gateway()
         self.assertIsInstance(actual, FilePort)
