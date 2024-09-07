@@ -36,7 +36,7 @@ class TestNotificationService(TestCase):
         user = MOCK_USERS["5"]
         user_entity = self._get_user_entity(user)
         self.user_repository.list_subscribed_users.return_value = [user]
-        self.notification_service.send_notification(notification=self.notification)
+        self.notification_service.send(notification=self.notification)
 
         self.email_port.send.assert_called_once_with(
             message_data=UserMessageDTO(message="Test message", user=user_entity)
@@ -46,7 +46,7 @@ class TestNotificationService(TestCase):
         user = MOCK_USERS["2"]
         user_entity = self._get_user_entity(user)
         self.user_repository.list_subscribed_users.return_value = [user]
-        self.notification_service.send_notification(notification=self.notification)
+        self.notification_service.send(notification=self.notification)
 
         self.sms_port.send.assert_called_once_with(
             message_data=UserMessageDTO(message="Test message", user=user_entity)
@@ -56,7 +56,7 @@ class TestNotificationService(TestCase):
         user = MOCK_USERS["4"]
         user_entity = self._get_user_entity(user)
         self.user_repository.list_subscribed_users.return_value = [user]
-        self.notification_service.send_notification(notification=self.notification)
+        self.notification_service.send(notification=self.notification)
 
         self.push_notification_port.send.assert_called_once_with(
             message_data=UserMessageDTO(message="Test message", user=user_entity)
@@ -66,7 +66,7 @@ class TestNotificationService(TestCase):
         user = MOCK_USERS["1"]
         user_entity = self._get_user_entity(user)
         self.user_repository.list_subscribed_users.return_value = [user]
-        self.notification_service.send_notification(notification=self.notification)
+        self.notification_service.send(notification=self.notification)
 
         self.email_port.send.assert_called_once_with(
             message_data=UserMessageDTO(message="Test message", user=user_entity)
@@ -80,7 +80,7 @@ class TestNotificationService(TestCase):
         user = MOCK_USERS["3"]
         user_entity = self._get_user_entity(user)
         self.user_repository.list_subscribed_users.return_value = [user]
-        self.notification_service.send_notification(notification=self.notification)
+        self.notification_service.send(notification=self.notification)
 
         self.email_port.send.assert_called_once_with(
             message_data=UserMessageDTO(message="Test message", user=user_entity)

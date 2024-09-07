@@ -23,7 +23,7 @@ class NotificationService:
         self.push_notification_port = push_notification_port
         self.user_repository = user_repository
 
-    def send_notification(self, notification: NotificationDTO) -> None:
+    def send(self, notification: NotificationDTO) -> None:
         raw_users = self.user_repository.list_subscribed_users(
             category=notification.category.value,
         )
