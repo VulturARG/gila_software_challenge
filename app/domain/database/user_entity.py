@@ -13,4 +13,6 @@ class UserEntity:
     channels: list[NotificationChannel]
 
     def as_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        data = asdict(self)
+        data["channels"] = [channel.value for channel in self.channels]
+        return data
