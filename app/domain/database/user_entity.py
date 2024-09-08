@@ -1,3 +1,4 @@
+from __future__ import annotations
 from dataclasses import asdict, dataclass
 from typing import Any
 
@@ -21,7 +22,7 @@ class UserEntity:
         return data
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "UserEntity":
+    def from_dict(cls, data: dict[str, Any]) -> UserEntity:
         channels = [NotificationChannel(channel) for channel in data["channels"]]
         subscribed = [NotificationCategory(sub) for sub in data["subscribed"]]
         return cls(
