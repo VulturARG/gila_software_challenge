@@ -1,5 +1,5 @@
-from app.infrastructure.fastapi.fastapi_app import fastapi_app
+from app.infrastructure.fastapi.fastapi_app import app
 from uvicorn import run
 
 if __name__ == "__main__":
-    run(fastapi_app, host="0.0.0.0", port=8000)
+    run(app, host="0.0.0.0", port=8000)
