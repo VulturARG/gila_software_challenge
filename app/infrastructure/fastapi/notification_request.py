@@ -1,4 +1,5 @@
 from app.domain.notifications.notification_category import NotificationCategory
+from app.domain.notifications.notifications_errors import NotificationRequestError
 from pydantic import BaseModel, Field, field_validator
 
 
@@ -11,5 +12,5 @@ class NotificationRequest(BaseModel):
     def validate_category(cls, value: str) -> str:
         if value.lower() not in [category.value for category in NotificationCategory]:
             message = f"Invalid category. Must be one of: {', '.join([c.value for c in NotificationCategory])}"
-            raise ValueError(message)
+            raise NotificationRequestError(message=message)
         return value.lower()
