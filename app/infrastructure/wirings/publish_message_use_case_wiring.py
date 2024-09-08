@@ -22,7 +22,6 @@ class PublishMessageUseCaseWiring:
     def instantiate(self) -> PublishMessageUseCase:
         return PublishMessageUseCase(
             notification_service=self._notification_service(),
-            logger=self._log_service(),
         )
 
     def _notification_service(self) -> NotificationService:
