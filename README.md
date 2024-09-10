@@ -26,6 +26,8 @@ As general development rules I have the following criteria:
 
 In this particular case, secure access to the endpoint was not implemented, since it was not a requested requirement.
 
+The code was standardized running the [Isort](https://pypi.org/project/pytest-isort/), [Black](https://pypi.org/project/black/) and [Flake8](https://pypi.org/project/flake8/) applications.
+
 ## Installation, execution and automatic testing
 - [Using virtual environment](docs/virtual_env_install.md)
 
